@@ -1,0 +1,8 @@
+CREATE VIEW store AS
+SELECT 
+	e.name AS enterprice_name, e.address AS address, p.category AS category,
+    p.name AS product_name
+FROM enterprice AS e
+INNER JOIN product AS p
+ON e.id=p.enterprice_id
+ORDER BY e.id;
