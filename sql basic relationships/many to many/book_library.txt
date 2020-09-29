@@ -1,0 +1,10 @@
+CREATE VIEW book_library AS
+SELECT
+	b.tittle AS book_tittle, b.page AS book_page,
+	a.first_name AS firstName, a.last_name AS lastName, a.address AS author_address
+FROM book_has_author AS bha
+INNER JOIN author AS a
+ON a.id = bha.author_id
+INNER JOIN book AS b
+ON b.id= bha.book_id
+ORDER BY a.id;

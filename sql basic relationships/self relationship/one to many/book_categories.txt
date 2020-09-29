@@ -1,0 +1,7 @@
+CREATE VIEW book_categories AS
+SELECT
+	c1.name AS book_categories, c2.name AS tittle
+FROM categories AS c1
+INNER JOIN categories AS c2
+ON c1.id=c2.categories_id
+ORDER BY c1.id;

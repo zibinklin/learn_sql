@@ -1,8 +1,0 @@
-CREATE VIEW login AS
-SELECT 
-	a.username AS username, p.first_name AS first_name, p.last_name AS last_name,
-    p.address AS address
-FROM account AS a
-INNER JOIN profile AS p
-ON a.id=p.account_id
-ORDER BY a.id;
