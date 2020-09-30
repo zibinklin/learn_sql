@@ -1,0 +1,7 @@
+CREATE VIEW follow AS
+SELECT 
+	i.username AS username, i.id AS id,  f.follow_account_id AS follow_account_id
+FROM instagram_account AS i
+INNER JOIN follow_account AS f
+ON i.id=f.instagram_account_id
+ORDER BY i.id;

@@ -1,0 +1,6 @@
+CREATE VIEW partner AS
+SELECT 
+ p1.name AS name, p2.name AS partner
+FROM people AS p1
+INNER JOIN people AS p2
+ON p1.id=p2.partner_id;

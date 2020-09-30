@@ -1,0 +1,10 @@
+CREATE VIEW regional_goverment AS
+SELECT 
+ d.name AS distric, d.population AS population,  g.first_name AS governor_name,
+ gf.name AS governor_office, gf.address AS address
+FROM distric AS d
+INNER JOIN governor_office AS gf
+ON d.id=gf.distric_id
+INNER JOIN governor AS g
+ON gf.id=g.governor_office_id
+ORDER BY d.id;
