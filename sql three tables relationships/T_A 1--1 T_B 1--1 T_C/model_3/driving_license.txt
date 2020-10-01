@@ -1,0 +1,10 @@
+CREATE VIEW driving_license AS
+SELECT 
+	r.first_name AS First_Name, r.last_name AS Last_Name, h.brand AS Helmet, h.color AS color,
+    m.name AS Motorcycle, m.cc AS CC
+FROM helmet AS h
+INNER JOIN rider AS r
+ON h.id=r.helmet_id
+INNER JOIN motorcycle AS m
+ON r.motorcycle_id=m.id
+ORDER BY r.id;

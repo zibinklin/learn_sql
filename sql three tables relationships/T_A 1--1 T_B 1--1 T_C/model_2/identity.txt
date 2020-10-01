@@ -1,0 +1,11 @@
+CREATE VIEW identity AS
+SELECT
+	ktp.nik AS NIK_KTP, ktp.first_name AS Nama_Depan, ktp.last_name AS Nama_Belakang,
+    sc.operator AS SIM_Card_Operator, sc.number AS Phone_Number,
+    tk.berangkat AS Lokasi_Keberangkatan, tk.tujuan AS Lokasi_Tujuan
+FROM ktp AS ktp
+INNER JOIN tiket_kapal AS tk
+ON ktp.id=tk.ktp_id
+INNER JOIN sim_card AS sc
+ON ktp.id=sc.ktp_id
+ORDER BY ktp.first_name;
