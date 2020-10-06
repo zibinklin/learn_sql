@@ -1,0 +1,12 @@
+CREATE VIEW goverment_employess AS
+SELECT
+	h.first_name AS headmaster_first_name, h.last_name AS headmaster_last_name,
+	sch.name AS school_name, sch.address AS school_address,
+    tc.first_name AS teacher_first_name, tc.last_name AS teacher_last_name
+    
+FROM schools AS sch
+INNER JOIN headmaster AS h
+ON sch.id = h.schools_id
+INNER JOIN teacher AS tc
+ON sch.id = tc.schools_id
+ORDER BY sch.id;

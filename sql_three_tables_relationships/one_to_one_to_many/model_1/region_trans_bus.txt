@@ -1,0 +1,11 @@
+CREATE VIEW region_trans_bus AS
+SELECT
+	p.name AS passenger_name, b.category AS bus_category, b.color AS bus_color, 
+    b.capacity AS seat_capacity, p.seat_number AS seat_number, d.first_name AS driver_first_name,
+    d.last_name AS diver_last_name, d.address AS driver_address
+FROM bus AS b
+INNER JOIN driver AS d
+ON b.driver_id=d.id
+INNER JOIN passenger AS p
+ON p.bus_id=b.id
+ORDER BY b.id;
