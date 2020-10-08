@@ -1,0 +1,9 @@
+CREATE VIEW lecture_distribution AS
+SELECT
+	un.name AS university, un.address AS univ_address, 
+    d.name AS departement_name, l.name AS lecture_name
+FROM university AS un
+INNER JOIN departements AS d
+ON un.id=d.university_id
+INNER JOIN lectures AS l
+ON l.departements_id = d.id;
