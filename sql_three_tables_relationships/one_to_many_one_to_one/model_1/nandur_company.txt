@@ -1,0 +1,11 @@
+CREATE VIEW nandur_company AS
+SELECT 
+	l.name AS land_name , l.length AS land_length, l.width AS land_with,
+    gh.name AS green_house_name, gh.witdh AS Green_house_width , gh.pot AS pots,
+    d.name AS dog_name, d.breeds AS dog_breeds, d.color AS dog_color
+FROM land AS l
+INNER JOIN green_houses AS gh
+ON l.id=gh.land_id
+INNER JOIN dogs AS d
+ON gh.dog_id=d.id
+ORDER BY l.id;
