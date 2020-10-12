@@ -1,0 +1,10 @@
+CREATE VIEW bts_distributions AS
+SELECT 
+	p.name AS province, p.populations AS populations, bts.name AS bts_name, bts.address AS bts_address,
+    lo.first_name AS leader_operator_first_name, lo.last_name AS last_name, lo.nik AS leader_operator_nik
+FROM leader_operators AS lo
+INNER JOIN base_tranciever_stations AS bts
+ON lo.base_tranciever_stations_id=bts.id
+INNER JOIN provinces AS p
+ON p.id = bts.provinces_id
+ORDER BY p.id;
