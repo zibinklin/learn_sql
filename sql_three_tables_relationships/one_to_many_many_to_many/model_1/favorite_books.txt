@@ -1,0 +1,12 @@
+CREATE VIEW favorite_books AS
+SELECT
+	us.username AS username, b.tittle AS book_tittle, b.publishing_year AS publishing_year, b.genre AS genre_book,
+    auth.first_name AS author_first_name, auth.last_name AS author_last_name
+FROM users AS us
+INNER JOIN favorite as f
+ON us.id= f.users_id
+INNER JOIN books AS b
+ON f.books_id=b.id
+INNER JOIN authors AS auth
+ON auth.id = b.authors_id
+ORDER BY us.id;

@@ -1,0 +1,12 @@
+CREATE VIEW characters AS
+SELECT
+	h.name AS heros_name, h.hp AS hp, h.armour AS armour, h.power AS power,
+    i.critical AS critical, i.magic_power AS magic_power, i.name AS item, t.name AS talent
+FROM heros AS h
+INNER JOIN talens AS t
+ON h.talens_id=t.id
+INNER JOIN status AS s
+ON s.heros_id=h.id
+INNER JOIN items AS i
+ON i.id=s.items_id
+ORDER BY h.id;
