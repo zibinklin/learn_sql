@@ -1,0 +1,14 @@
+CREATE VIEW student_activity AS 
+SELECT
+	o.name AS organisation_name, o.address AS organisation_address, s.fisrt_name AS student_first_name,
+    s.last_name AS student_last_name, c.name AS courses_name
+FROM students AS s
+INNER JOIN student_has_organisations AS sho
+ON s.id=sho.student_id
+INNER JOIN organisations AS o
+ON sho.organisations_id=o.id
+INNER JOIN student_has_courses AS shc
+ON shc.student_id=s.id
+INNER JOIN courses AS c
+ON c.id=shc.courses_id
+ORDER BY o.id;

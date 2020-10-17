@@ -1,0 +1,11 @@
+CREATE VIEW utilizations AS
+SELECT
+	u.username AS user, l.name AS laptop_name, a.name AS activity
+FROM users_has_laptops AS uhl
+INNER JOIN users AS u
+ON u.id=uhl.users_id
+INNER JOIN laptops AS l
+ON uhl.laptops_id = l.id
+INNER JOIN activity AS a
+ON a.users_id=u.id
+ORDER BY u.id;
